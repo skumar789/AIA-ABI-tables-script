@@ -1,0 +1,1574 @@
+CREATE TABLE [dbo].[AIA_AETNA_NEW_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Segment] [varchar](254) NULL,
+	[Product 1] [varchar](254) NULL,
+	[Product 2] [varchar](254) NULL,
+	[Product 3] [varchar](254) NULL,
+	[Product 4] [varchar](254) NULL,
+	[Customer name] [varchar](254) NULL,
+	[Customer no] [varchar](254) NULL,
+	[Effective date] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Medical subscribers] [varchar](254) NULL,
+	[YTD prem] [varchar](254) NULL,
+	[YTD comp] [varchar](254) NULL,
+	[Tax withholding] [varchar](254) NULL,
+	[Net compensation] [varchar](254) NULL,
+	[Status] [varchar](50) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_NEW_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_NEW_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+*******************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Segment] [varchar](254) NULL,
+	[Product 1] [varchar](254) NULL,
+	[Product 2] [varchar](254) NULL,
+	[Product 3] [varchar](254) NULL,
+	[Product 4] [varchar](254) NULL,
+	[Customer name] [varchar](254) NULL,
+	[Customer no] [varchar](254) NULL,
+	[Effective date] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Medical subscribers] [varchar](254) NULL,
+	[YTD prem] [varchar](254) NULL,
+	[YTD comp] [varchar](254) NULL,
+	[Tax withholding] [varchar](254) NULL,
+	[Net compensation] [varchar](254) NULL,
+	[Status] [varchar](50) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('AIA_Aetna_Rbm_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AETNA_OLD_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***********************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [varchar](254) NULL,
+	[Agency_Name] [varchar](254) NULL,
+	[Agency_Address] [varchar](254) NULL,
+	[Agency_Phone] [varchar](254) NULL,
+	[Agency_Email] [varchar](254) NULL,
+	[Agency_Primary_Contact_Name] [varchar](254) NULL,
+	[Agency_Secondary_Contact_Name] [varchar](254) NULL,
+	[Agency_Role] [varchar](254) NULL,
+	[Agency_E2EDS_Application_Access_Status] [varchar](254) NULL,
+	[Agency_Contract_Start_Date] [varchar](254) NULL,
+	[Agency_Contract_End_Date] [varchar](254) NULL,
+	[Agency_Contract_Renewal_Date] [varchar](254) NULL,
+	[Agency_Contract_Termination_Date] [varchar](254) NULL,
+	[Agency_Contract_Signed_By] [varchar](254) NULL,
+	[Agency_Primary_Login_Id] [varchar](254) NULL,
+	[Agency_Primary_Login_Password] [varchar](254) NULL,
+	[Agency_Logo] [image] NULL,
+	[Agency_Web_URL_Address] [varchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('AIA_Agency_Onboarding_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Year] [varchar](254) NULL,
+	[Segment] [varchar](254) NULL,
+	[Agent_Role] [varchar](254) NULL,
+	[Comp_Statement] [varchar](254) NULL,
+	[Product_Type] [varchar](254) NULL,
+	[Commission_Type] [varchar](254) NULL,
+	[Agency_Comp_Type] [varchar](254) NULL,
+	[Contract_Starts_With] [varchar](254) NULL,
+	[E2E_Plan_Description] [varchar](254) NULL,
+	[Frequency] [varchar](254) NULL,
+	[Carrier_Rate] [varchar](254) NULL,
+	[Employee_Rate] [varchar](254) NULL,
+	[Payment_Rate] [varchar](254) NULL,
+	[Override_Rate] [varchar](254) NULL,
+	[Rate_Type] [varchar](254) NULL,
+	[Enrollment_Year_Start] [varchar](254) NULL,
+	[Enrollment_Year_End] [varchar](254) NULL,
+	[Group_Size_Range_Start] [varchar](254) NULL,
+	[Group_Size_Range_End] [varchar](254) NULL,
+	[Group_County] [varchar](254) NULL,
+	[Tier1_Amount] [varchar](254) NULL,
+	[Tier2_Amount] [varchar](254) NULL,
+	[Tier3_Amount] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Department] [varchar](254) NULL,
+	[Carrier] [varchar](100) NULL,
+	[Agency_ID] [nvarchar](5) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('AIA_Agency_Rate_Annual_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+****************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[User_Id] [nvarchar](50) NOT NULL,
+	[First_Name] [nvarchar](50) NULL,
+	[Last_Name] [nvarchar](50) NULL,
+	[Email_Address] [nvarchar](100) NULL,
+	[Termination_Flag] [nvarchar](50) NULL,
+	[Department_Name] [nvarchar](100) NULL,
+	[NPN_Grouping] [nvarchar](100) NULL,
+	[Upline_Id] [nvarchar](100) NULL,
+	[Upline_First_Name] [nvarchar](100) NULL,
+	[Upline_Last_Name] [nvarchar](100) NULL,
+	[Level_Seq] [nvarchar](100) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS] ADD  DEFAULT ('AIA_IMS_Data_Hier_Exp_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***********************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[User_Id] [nvarchar](50) NOT NULL,
+	[First_Name] [nvarchar](50) NULL,
+	[Last_Name] [nvarchar](50) NULL,
+	[Email_Address] [nvarchar](100) NULL,
+	[Termination_Flag] [nvarchar](50) NULL,
+	[Department_Name] [nvarchar](100) NULL,
+	[NPN_Grouping] [nvarchar](100) NULL,
+	[Upline_Id] [nvarchar](100) NULL,
+	[Upline_First_Name] [nvarchar](100) NULL,
+	[Upline_Last_Name] [nvarchar](100) NULL,
+	[Level_Seq] [nvarchar](100) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY] ADD  DEFAULT ('AIA_AGENCY_EMP_HIER_DETAILS_STG') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_HISTORY] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*****************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](50) NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Email] [nvarchar](100) NULL,
+	[Terminated] [nvarchar](50) NULL,
+	[Department] [nvarchar](100) NULL,
+	[NpnGrouping] [nvarchar](100) NULL,
+	[UplineId] [nvarchar](100) NULL,
+	[UplineFirstName] [nvarchar](100) NULL,
+	[UplineLastName] [nvarchar](100) NULL,
+	[Level] [nvarchar](100) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG] ADD  DEFAULT ('AIA_IMS_Data_Hier_Exp_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_EMP_HIER_DETAILS_STG] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Contract_Year] [varchar](10) NULL,
+	[Employee_Type] [nvarchar](max) NULL,
+	[Employee_ID] [varchar](250) NULL,
+	[Full_Name] [nvarchar](max) NULL,
+	[Primary_Role] [varchar](250) NULL,
+	[Monthly_Renewal_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Pre_ACA_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[LTL_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Med_Sup_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Dental_NewSale_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[ACA_NewSale_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Group_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Ancillary_Renewal_Writing_Agent_Comp_Tier] [nvarchar](max) NULL,
+	[Payroll_Id] [nvarchar](max) NULL,
+	[Payee_Employee_Id] [nvarchar](max) NULL,
+	[Payee_Name] [nvarchar](max) NULL,
+	[Main_Upline_Employee_ID] [nvarchar](max) NULL,
+	[Main_Upline_Full_Name] [nvarchar](max) NULL,
+	[Role_End_Date] [date] NULL,
+	[Role_End_Reason] [nvarchar](max) NULL,
+	[All_Sales_Payee] [nvarchar](max) NULL,
+	[Submitting_Agent] [nvarchar](max) NULL,
+	[Secondary_Role] [nvarchar](max) NULL,
+	[Department_Entity_ID] [nvarchar](max) NULL,
+	[Department_Name] [nvarchar](max) NULL,
+	[Health_ACA_Employee Tier] [nvarchar](max) NULL,
+	[Agency_ID] [nvarchar](5) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('AIA_Agency_Payee_Monthly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agent_Statement_Date] [varchar](254) NULL,
+	[Agency_Name] [varchar](254) NULL,
+	[Agent_Name] [varchar](254) NULL,
+	[Agent_ID] [varchar](254) NULL,
+	[Agent_Number] [varchar](254) NULL,
+	[Agent_Commission_Note] [varchar](254) NULL,
+	[Carrier_Name] [varchar](254) NULL,
+	[Effective_Date] [varchar](254) NULL,
+	[Client_Name] [varchar](254) NULL,
+	[Policy_ID] [varchar](254) NULL,
+	[Policy_Number] [varchar](254) NULL,
+	[Coverage_Type] [varchar](254) NULL,
+	[Bill_From_Date] [varchar](254) NULL,
+	[Month_of_Bill_From_Date] [varchar](254) NULL,
+	[Lives] [varchar](254) NULL,
+	[Premium_Amount] [varchar](254) NULL,
+	[Commission_Amount] [varchar](254) NULL,
+	[Commission_Entry_Note] [varchar](254) NULL,
+	[Revenue_Type] [varchar](254) NULL,
+	[Balance_Forwarded] [varchar](254) NULL,
+	[Compensation_Month] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS] ADD  DEFAULT ('AIA_All_Carriers_Statement_Monthly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*********************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_ALL_CARRIERS_STATEMENT_DETAILS_FINAL](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agent_Statement_Date] [varchar](254) NULL,
+	[Agency_Name] [varchar](254) NULL,
+	[Agent_Name] [varchar](254) NULL,
+	[Agent_ID] [varchar](254) NULL,
+	[Agent_Number] [varchar](254) NULL,
+	[Agent_Commission_Note] [varchar](254) NULL,
+	[Carrier_Name] [varchar](254) NULL,
+	[Effective_Date] [varchar](254) NULL,
+	[Client_Name] [varchar](254) NULL,
+	[Policy_ID] [varchar](254) NULL,
+	[Policy_Number] [varchar](254) NULL,
+	[Coverage_Type] [varchar](254) NULL,
+	[Bill_From_Date] [varchar](254) NULL,
+	[Month_of_Bill_From_Date] [varchar](254) NULL,
+	[Lives] [varchar](254) NULL,
+	[Premium_Amount] [varchar](254) NULL,
+	[Commission_Amount] [varchar](254) NULL,
+	[Commission_Entry_Note] [varchar](254) NULL,
+	[Revenue_Type] [varchar](254) NULL,
+	[Balance_Forwarded] [varchar](254) NULL,
+	[Compensation_Month] [varchar](254) NULL,
+	[CompensationType] [varchar](254) NULL,
+	[Bill_From_Year] [varchar](10) NULL
+) ON [PRIMARY]
+GO
+
+********************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Broker Name] [varchar](254) NULL,
+	[Broker NPN] [varchar](254) NULL,
+	[Policy Number] [varchar](254) NULL,
+	[Inusred First Name] [varchar](254) NULL,
+	[Insured Last Name] [varchar](254) NULL,
+	[Broker Effective Date] [varchar](254) NULL,
+	[Broker Term Date] [varchar](254) NULL,
+	[Policy Effective Date] [varchar](254) NULL,
+	[Policy Term Date] [varchar](254) NULL,
+	[Paid Through Date] [varchar](254) NULL,
+	[County] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[On/Off Exchange] [varchar](254) NULL,
+	[Exchange Subscriber ID] [varchar](254) NULL,
+	[Member Phone Number] [varchar](254) NULL,
+	[Member Email] [varchar](254) NULL,
+	[Member Responsibility] [varchar](254) NULL,
+	[Member Date Of Birth] [varchar](254) NULL,
+	[Autopay] [varchar](254) NULL,
+	[Eligible for Commission] [varchar](254) NULL,
+	[Number of Members] [varchar](254) NULL,
+	[Payable Agent] [varchar](254) NULL,
+	[AR Policy Type] [varchar](254) NULL,
+	[Status] [varchar](50) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('AIA_Ambetter_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_AMBETTER_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*****************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Client Name] [varchar](254) NULL,
+	[Client ID] [varchar](254) NULL,
+	[Market] [varchar](254) NULL,
+	[Status] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Exchange] [varchar](254) NULL,
+	[Effective Date] [varchar](254) NULL,
+	[Original Effective Date] [varchar](254) NULL,
+	[Cancellation Date] [varchar](254) NULL,
+	[Product] [varchar](254) NULL,
+	[Plan Name] [varchar](254) NULL,
+	[New Business] [varchar](254) NULL,
+	[Bill Status] [varchar](254) NULL,
+	[Bill Due Date] [varchar](254) NULL,
+	[Renewal Month] [varchar](254) NULL,
+	[ACA] [varchar](254) NULL,
+	[Family ID] [varchar](254) NULL,
+	[Group Size] [varchar](254) NULL,
+	[Writing Agent] [varchar](254) NULL,
+	[Writing TIN] [varchar](254) NULL,
+	[Paid Agent] [varchar](254) NULL,
+	[Paid TIN] [varchar](254) NULL,
+	[Parent Agent] [varchar](254) NULL,
+	[Parent TIN] [varchar](254) NULL,
+	[Reporting Agent] [varchar](254) NULL,
+	[Reporting TIN] [varchar](254) NULL,
+	[Funding Type] [varchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('AIA_Anthem_Bcbs_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_ANTHEM_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Receive_Date] [varchar](100) NULL,
+	[Billing_Date] [varchar](100) NULL,
+	[Carrier_Name] [varchar](100) NULL,
+	[Policy_Type] [varchar](100) NULL,
+	[Policy_Number] [varchar](100) NULL,
+	[Effective_Date] [varchar](100) NULL,
+	[Client_Name] [varchar](200) NULL,
+	[Transaction_Type] [varchar](100) NULL,
+	[Agent_Comm] [varchar](10) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS] ADD  DEFAULT ('AIA_BCBSTX_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_BCBSTX_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Carrier] [varchar](100) NULL,
+	[Owning_Agent_of_Record] [varchar](100) NULL,
+	[Assigned_Agent_Number] [varchar](100) NULL,
+	[Broker_Start_Date] [varchar](100) NULL,
+	[Broker_End_Date] [varchar](100) NULL,
+	[Product_Type] [varchar](100) NULL,
+	[Product_Description] [varchar](100) NULL,
+	[IMS_Transaction_ID] [varchar](100) NULL,
+	[Policy_Status] [varchar](100) NULL,
+	[Policy_ID] [varchar](100) NULL,
+	[Group_Name] [varchar](100) NULL,
+	[Member_Count] [varchar](100) NULL,
+	[On/Off_Exchange] [varchar](100) NULL,
+	[Exchange_Subscriber_ID] [varchar](100) NULL,
+	[Coverage_Type] [varchar](100) NULL,
+	[Subscriber_Original_Effective_Date] [varchar](100) NULL,
+	[Coverage_Start__Date] [varchar](100) NULL,
+	[Coverage_End_Date] [varchar](100) NULL,
+	[Paid_Through_Date] [varchar](100) NULL,
+	[Subscriber_First_Name] [varchar](100) NULL,
+	[Subscriber_Middle_Name] [varchar](100) NULL,
+	[Subscriber_Last_Name] [varchar](100) NULL,
+	[Subscriber_Full_Name] [varchar](100) NULL,
+	[Subscriber_DOB] [varchar](100) NULL,
+	[Subscriber_Email] [varchar](100) NULL,
+	[Address] [varchar](100) NULL,
+	[Address_2] [varchar](100) NULL,
+	[Zip_Code] [varchar](100) NULL,
+	[City] [varchar](100) NULL,
+	[State] [varchar](100) NULL,
+	[County] [varchar](100) NULL,
+	[App_Submit_Date] [varchar](100) NULL,
+	[Member_Phone_Number_1] [varchar](100) NULL,
+	[Member_Phone_Number_2] [varchar](100) NULL,
+	[Compensation_Type] [varchar](100) NULL,
+	[Compensation_Period] [varchar](100) NULL,
+	[Compensation_Amount] [varchar](100) NULL,
+	[HS_Aligned] [varchar](100) NULL,
+	[Main_Upline_Agent] [varchar](100) NULL,
+	[Group_Team_Sales] [varchar](100) NULL,
+	[Transition_Date] [varchar](100) NULL,
+	[Assigned_Agent_Name] [varchar](100) NULL,
+	[Agency_ID] [varchar](100) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY] ADD  DEFAULT ('AIA_IMS_BOB_WITH_POLICY_ID_AND_IMS_TRANSACTION_ID_VIEW') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+****************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY_bkp](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Carrier] [varchar](100) NULL,
+	[Owning_Agent_of_Record] [varchar](100) NULL,
+	[Assigned_Agent_Number] [varchar](100) NULL,
+	[Broker_Start_Date] [varchar](100) NULL,
+	[Broker_End_Date] [varchar](100) NULL,
+	[Product_Type] [varchar](100) NULL,
+	[Product_Description] [varchar](100) NULL,
+	[IMS_Transaction_ID] [varchar](100) NULL,
+	[Policy_Status] [varchar](100) NULL,
+	[Policy_ID] [varchar](100) NULL,
+	[Group_Name] [varchar](100) NULL,
+	[Member_Count] [varchar](100) NULL,
+	[On/Off_Exchange] [varchar](100) NULL,
+	[Exchange_Subscriber_ID] [varchar](100) NULL,
+	[Coverage_Type] [varchar](100) NULL,
+	[Subscriber_Original_Effective_Date] [varchar](100) NULL,
+	[Coverage_Start__Date] [varchar](100) NULL,
+	[Coverage_End_Date] [varchar](100) NULL,
+	[Paid_Through_Date] [varchar](100) NULL,
+	[Subscriber_First_Name] [varchar](100) NULL,
+	[Subscriber_Middle_Name] [varchar](100) NULL,
+	[Subscriber_Last_Name] [varchar](100) NULL,
+	[Subscriber_Full_Name] [varchar](100) NULL,
+	[Subscriber_DOB] [varchar](100) NULL,
+	[Subscriber_Email] [varchar](100) NULL,
+	[Address] [varchar](100) NULL,
+	[Address_2] [varchar](100) NULL,
+	[Zip_Code] [varchar](100) NULL,
+	[City] [varchar](100) NULL,
+	[State] [varchar](100) NULL,
+	[County] [varchar](100) NULL,
+	[App_Submit_Date] [varchar](100) NULL,
+	[Member_Phone_Number_1] [varchar](100) NULL,
+	[Member_Phone_Number_2] [varchar](100) NULL,
+	[Compensation_Type] [varchar](100) NULL,
+	[Compensation_Period] [varchar](100) NULL,
+	[Compensation_Amount] [varchar](100) NULL,
+	[HS_Aligned] [varchar](100) NULL,
+	[Main_Upline_Agent] [varchar](100) NULL,
+	[Group_Team_Sales] [varchar](100) NULL,
+	[Transition_Date] [varchar](100) NULL,
+	[Assigned_Agent_Name] [varchar](100) NULL,
+	[Agency_ID] [varchar](100) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+***************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY_temp](
+	[Policy_Id] [varchar](100) NULL,
+	[coverage_Start__Date] [varchar](100) NULL,
+	[IMS_Transaction_ID] [int] NULL
+) ON [PRIMARY]
+GO
+
+***************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BOB_ALL_AGENCY_ALL_POLICY_ALL_TRANSACTION_ID_HISTORY_temp2](
+	[Policy_ID] [varchar](100) NULL,
+	[E2eis_Seq_Number] [bigint] NULL
+) ON [PRIMARY]
+GO
+
+**************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Carrier] [varchar](10) NULL,
+	[Owning_Agent_of_Record] [varchar](100) NULL,
+	[Assigned_Agent_Number] [varchar](100) NULL,
+	[Broker_Start_Date] [varchar](100) NULL,
+	[Broker_End_Date] [varchar](100) NULL,
+	[Product_Type] [varchar](100) NULL,
+	[Product_Description] [varchar](100) NULL,
+	[IMS_Transaction_ID] [varchar](100) NULL,
+	[Policy_Status] [varchar](100) NULL,
+	[Policy_ID] [varchar](100) NULL,
+	[Group_Name] [varchar](100) NULL,
+	[Member_Count] [varchar](100) NULL,
+	[On/Off_Exchange] [varchar](100) NULL,
+	[Exchange_Subscriber_ID] [varchar](100) NULL,
+	[Coverage_Type] [varchar](100) NULL,
+	[Subscriber_Original_Effective_Date] [varchar](100) NULL,
+	[Coverage_Start__Date] [varchar](100) NULL,
+	[Coverage_End_Date] [varchar](100) NULL,
+	[Paid_Through_Date] [varchar](100) NULL,
+	[Subscriber_First_Name] [varchar](100) NULL,
+	[Subscriber_Middle_Name] [varchar](100) NULL,
+	[Subscriber_Last_Name] [varchar](100) NULL,
+	[Subscriber_Full_Name] [varchar](100) NULL,
+	[Subscriber_DOB] [varchar](100) NULL,
+	[Subscriber_Email] [varchar](100) NULL,
+	[Address] [varchar](100) NULL,
+	[Address_2] [varchar](100) NULL,
+	[Zip_Code] [varchar](100) NULL,
+	[City] [varchar](100) NULL,
+	[State] [varchar](100) NULL,
+	[County] [varchar](100) NULL,
+	[App_Submit_Date] [varchar](100) NULL,
+	[Member_Phone_Number_1] [varchar](100) NULL,
+	[Member_Phone_Number_2] [varchar](100) NULL,
+	[Compensation_Type] [varchar](100) NULL,
+	[Compensation_Period] [varchar](100) NULL,
+	[Compensation_Amount] [varchar](100) NULL,
+	[HS_Aligned] [varchar](100) NULL,
+	[Main_Upline_Agent] [varchar](100) NULL,
+	[Group_Team_Sales] [varchar](100) NULL,
+	[Transition_Date] [varchar](100) NULL,
+	[Assigned_Agent_Name] [varchar](100) NULL,
+	[Agency_ID] [varchar](100) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY] ADD  DEFAULT ('AIA_BOB_ALL_POLICY_DETAILS_VIEW') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_BOB_ALL_POLICY_DETAILS_HISTORY] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Producer_ID] [varchar](50) NULL,
+	[Producer_Name] [varchar](100) NULL,
+	[Member_ID] [varchar](50) NULL,
+	[Member_Name] [varchar](100) NULL,
+	[Subscriber_DoB] [varchar](50) NULL,
+	[Policy_State] [varchar](50) NULL,
+	[ZIP] [varchar](15) NULL,
+	[Phone] [varchar](50) NULL,
+	[Product] [varchar](100) NULL,
+	[Policy_ID] [varchar](20) NULL,
+	[Number_of_Dependents] [nvarchar](3) NULL,
+	[Effective_Date] [varchar](22) NULL,
+	[Termination_Date] [varchar](22) NULL,
+	[Policy_Status] [varchar](50) NULL,
+	[Aging_Status] [varchar](50) NULL,
+	[Premium_Amount] [varchar](50) NULL,
+	[Tax_Credit_Amt] [varchar](50) NULL,
+	[Current_Balance] [varchar](50) NULL,
+	[Paid_Through_Date] [varchar](50) NULL,
+	[Last_Paid_Date] [varchar](50) NULL,
+	[Holder_Email] [varchar](100) NULL,
+	[Auto_Pay] [varchar](50) NULL,
+	[Current_Balance_Due_Date] [varchar](50) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS] ADD  DEFAULT ('AIA_CareSource_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_CARESOURCE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**********************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Subscriber_ID] [nvarchar](254) NULL,
+	[Customer_Number] [nvarchar](254) NULL,
+	[Primary_Last_Name] [nvarchar](254) NULL,
+	[Primary_First_Name] [nvarchar](254) NULL,
+	[Writing_Agent_NPN] [nvarchar](254) NULL,
+	[Writing_Agent] [nvarchar](254) NULL,
+	[Product_Type] [nvarchar](254) NULL,
+	[ON_OFF_Exchange] [nvarchar](254) NULL,
+	[Subsidy] [nvarchar](254) NULL,
+	[Total_Premium] [nvarchar](254) NULL,
+	[APTC] [nvarchar](254) NULL,
+	[Premium_Customer_Responsibility] [nvarchar](254) NULL,
+	[Plan_Name] [nvarchar](254) NULL,
+	[Policy_Status] [nvarchar](254) NULL,
+	[Effective_Date] [nvarchar](254) NULL,
+	[Date_Application_Received] [nvarchar](254) NULL,
+	[Renewal_Month] [nvarchar](254) NULL,
+	[Paid_Through_Date] [nvarchar](254) NULL,
+	[Termination_Date] [nvarchar](254) NULL,
+	[State] [nvarchar](254) NULL,
+	[Customer_Email_Address] [nvarchar](254) NULL,
+	[Customer_Phone_Number] [nvarchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('AIA_Cigna_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_CIGNA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_Commission_Payment](
+	[Carrier_Name] [varchar](254) NULL,
+	[Agency_Name] [varchar](254) NULL,
+	[Agent_Name] [varchar](254) NULL,
+	[Agent_ID] [varchar](254) NULL,
+	[Agent_Number] [varchar](254) NULL,
+	[Agent_Commission_Note] [varchar](254) NULL,
+	[Effective_Date] [varchar](254) NULL,
+	[Client_Name] [varchar](254) NULL,
+	[Policy_ID] [varchar](254) NULL,
+	[Policy_Number] [varchar](254) NULL,
+	[Stmt_Coverage_Type] [varchar](254) NULL,
+	[Bill_From_Date] [varchar](254) NULL,
+	[Month_of_Bill_From_Date] [varchar](254) NULL,
+	[Lives] [varchar](254) NULL,
+	[Premium_Amount] [varchar](254) NULL,
+	[Commission_Amount] [varchar](254) NULL,
+	[Commission_Entry_Note] [varchar](254) NULL,
+	[Revenue_Type] [varchar](254) NULL,
+	[Balance_Forwarded] [varchar](254) NULL,
+	[Agency_Code] [varchar](3) NULL,
+	[Broker_Start_Date] [varchar](254) NULL,
+	[Broker_End_Date] [varchar](254) NULL,
+	[Product_Type] [nvarchar](254) NULL,
+	[Product_Description] [nvarchar](254) NULL,
+	[IMS_Transaction_ID] [varchar](100) NULL,
+	[Policy_Status] [nvarchar](254) NULL,
+	[Member_Count] [int] NULL,
+	[On/Off_Exchange] [nvarchar](254) NULL,
+	[BOB_Coverage_Type] [varchar](1) NULL,
+	[Coverage_Start__Date] [date] NULL,
+	[Coverage_End_Date] [varchar](254) NULL,
+	[Paid_Through_Date] [nvarchar](254) NULL,
+	[Subscriber_First_Name] [nvarchar](254) NULL,
+	[Subscriber_Middle_Name] [varchar](1) NULL,
+	[Subscriber_Last_Name] [nvarchar](254) NULL,
+	[Subscriber_Full_Name] [nvarchar](509) NULL,
+	[State] [nvarchar](254) NULL,
+	[City] [varchar](254) NULL,
+	[County] [varchar](254) NULL,
+	[Ims_Agent_Id] [varchar](100) NULL,
+	[Runner_Full_Name] [nvarchar](max) NULL,
+	[Runner_Role] [nvarchar](max) NULL,
+	[Override_Employee_Id] [nvarchar](max) NULL,
+	[Override_Payee_Name] [nvarchar](max) NULL,
+	[Override_Payee_Role] [nvarchar](max) NULL,
+	[Department_Employee_Id] [nvarchar](max) NULL,
+	[Department_Full_Name] [nvarchar](max) NULL,
+	[Department_Role] [nvarchar](max) NULL,
+	[Payment_Rate] [varchar](254) NULL,
+	[Rate] [decimal](18, 7) NULL,
+	[Rate_Type] [varchar](254) NULL,
+	[Depart_Rate] [decimal](18, 7) NULL,
+	[Depart_Rate_Type] [varchar](254) NULL,
+	[Agent_Commission] [decimal](37, 14) NULL,
+	[Department_Commission] [decimal](37, 14) NULL,
+	[COMPENSATION_TYPE] [varchar](250) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+*************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[IMS_Transaction_Id] [varchar](100) NULL,
+	[Submitter_Id] [varchar](100) NULL,
+	[Submitter_First_Name] [varchar](100) NULL,
+	[Submitter_Last_Name] [varchar](100) NULL,
+	[Date_Time_Submitted] [varchar](100) NULL,
+	[Agent_Id] [varchar](100) NULL,
+	[Agent_First_Name] [varchar](100) NULL,
+	[Agent_Last_Name] [varchar](100) NULL,
+	[Runner_Name] [varchar](100) NULL,
+	[Upline_First_Name] [varchar](100) NULL,
+	[Upline_Last_Name] [varchar](100) NULL,
+	[Department_Name] [varchar](100) NULL,
+	[Department_Designation] [varchar](100) NULL,
+	[Client_First_Name] [varchar](100) NULL,
+	[Client_Last_Name] [varchar](100) NULL,
+	[Client_DOB] [varchar](100) NULL,
+	[Client_Phone] [varchar](100) NULL,
+	[Client_SSN] [varchar](100) NULL,
+	[Client_Email] [varchar](100) NULL,
+	[Client_Address_1] [varchar](100) NULL,
+	[Client_Address_2] [varchar](100) NULL,
+	[Client_City] [varchar](100) NULL,
+	[Client_State] [varchar](100) NULL,
+	[Client_Zip] [varchar](100) NULL,
+	[Member_Count_Enrolled] [varchar](100) NULL,
+	[Client_Sex] [varchar](100) NULL,
+	[Tax_Credit_Amount] [varchar](100) NULL,
+	[Plan_Premium] [varchar](100) NULL,
+	[Payment_Amount] [varchar](100) NULL,
+	[Plan_Name] [varchar](100) NULL,
+	[Plan_Id] [varchar](100) NULL,
+	[Plan_Selected] [varchar](100) NULL,
+	[Status] [varchar](100) NULL,
+	[Policy_Effective_Date] [varchar](100) NULL,
+	[Agent_Login_Used] [varchar](100) NULL,
+	[Submitted_To_FloridaBlue] [varchar](100) NULL,
+	[Carrier] [varchar](100) NULL,
+	[FFM_Id] [varchar](100) NULL,
+	[Subscriber_Id] [varchar](100) NULL,
+	[Policy_ID] [varchar](100) NULL,
+	[Subscriber_Original_Effective_Date] [varchar](100) NULL,
+	[Agency_ID] [varchar](100) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY] ADD  DEFAULT ('AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_VIEW') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_BOB_WITH_ASSIGNED_POLICY_ID_HISTORY] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***********************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_IMS_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[IMS_Transaction_Id] [varchar](250) NULL,
+	[Submitter_Id] [varchar](250) NULL,
+	[Submitter_First_Name] [varchar](250) NULL,
+	[Submitter_Last_Name] [varchar](250) NULL,
+	[Florida_Blue_Response] [varchar](250) NULL,
+	[Date_Time_Submitted] [varchar](250) NULL,
+	[Agent_Id] [varchar](250) NULL,
+	[Agent_First_Name] [varchar](250) NULL,
+	[Agent_Last_Name] [varchar](250) NULL,
+	[Runner_Name] [varchar](250) NULL,
+	[Upline_First_Name] [varchar](250) NULL,
+	[Upline_Last_Name] [varchar](250) NULL,
+	[Department_Name] [varchar](250) NULL,
+	[Department_Designation] [varchar](250) NULL,
+	[Client_First_Name] [varchar](250) NULL,
+	[Client_Last_Name] [varchar](250) NULL,
+	[Client_DOB] [varchar](250) NULL,
+	[Client_Phone] [varchar](250) NULL,
+	[Client_Email] [varchar](250) NULL,
+	[Client_Address_1] [varchar](254) NULL,
+	[Client_Address_2] [varchar](254) NULL,
+	[Client_City] [varchar](250) NULL,
+	[Client_State] [varchar](250) NULL,
+	[Client_Zip] [varchar](250) NULL,
+	[Member_Count_Enrolled] [varchar](250) NULL,
+	[Assigned_Id] [varchar](250) NULL,
+	[Status] [varchar](250) NULL,
+	[App_Submitted_Date] [varchar](250) NULL,
+	[Policy_Effective_Date] [varchar](250) NULL,
+	[Agent_Login_Used] [varchar](250) NULL,
+	[Carrier] [varchar](250) NULL,
+	[FFM_Id] [varchar](250) NULL,
+	[Subscriber_Id] [varchar](250) NULL,
+	[Client_Sex] [varchar](250) NULL,
+	[Married] [varchar](250) NULL,
+	[Pregnant] [varchar](250) NULL,
+	[Smoker] [varchar](250) NULL,
+	[American_Native] [varchar](250) NULL,
+	[Client_Income] [varchar](250) NULL,
+	[Client_Income_Freq] [varchar](250) NULL,
+	[Tax_Credit_Amount] [varchar](250) NULL,
+	[Plan_Premium] [varchar](250) NULL,
+	[Payment_Amount] [varchar](250) NULL,
+	[Plan_Name] [varchar](250) NULL,
+	[Plan_ID] [varchar](250) NULL,
+	[Insurance_Company] [varchar](250) NULL,
+	[Plan_Selected] [varchar](250) NULL,
+	[DateTime_Assigned] [varchar](250) NULL,
+	[Last_Status_Change] [varchar](250) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS] ADD  DEFAULT ('[AIA_IMS_POLICY_HISTORY]') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***********************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Id] [varchar](250) NULL,
+	[Submitter_ID] [varchar](250) NULL,
+	[SubmitterFirstName] [varchar](250) NULL,
+	[SubmitterLastName] [varchar](250) NULL,
+	[Florida_Blue_Response] [varchar](250) NULL,
+	[DateTime_Submitted] [varchar](250) NULL,
+	[Agent_Id] [varchar](250) NULL,
+	[AgentFirstName] [varchar](250) NULL,
+	[AgentLastName] [varchar](250) NULL,
+	[Runner_Name] [varchar](250) NULL,
+	[UplineFirstName] [varchar](250) NULL,
+	[UplineLastName] [varchar](250) NULL,
+	[DepartmentName] [varchar](250) NULL,
+	[DepartmentDesignation] [varchar](250) NULL,
+	[Client_First_Name] [varchar](250) NULL,
+	[Client_Last_Name] [varchar](250) NULL,
+	[Client_DOB] [varchar](250) NULL,
+	[Client_Phone] [varchar](250) NULL,
+	[Client_SSN] [varchar](250) NULL,
+	[Client_Email] [varchar](250) NULL,
+	[Client_Address_1] [varchar](250) NULL,
+	[Client_Address_2] [varchar](250) NULL,
+	[Client_City] [varchar](250) NULL,
+	[Client_State] [varchar](250) NULL,
+	[Client_Zip] [varchar](250) NULL,
+	[Member_Count_Enrolled] [varchar](250) NULL,
+	[Client_Sex] [varchar](250) NULL,
+	[Product_Change] [varchar](250) NULL,
+	[Married] [varchar](250) NULL,
+	[Dependents] [varchar](250) NULL,
+	[Pregnant] [varchar](250) NULL,
+	[Smoker] [varchar](250) NULL,
+	[American_Native] [varchar](250) NULL,
+	[Employer_Name] [varchar](250) NULL,
+	[Employer_Number] [varchar](250) NULL,
+	[Client_Income] [varchar](250) NULL,
+	[Client_Income_Freq] [varchar](250) NULL,
+	[Spousal_First_Name] [varchar](250) NULL,
+	[Spousal_Last_Name] [varchar](250) NULL,
+	[Spousal_SSN] [varchar](250) NULL,
+	[Spousal_DOB] [varchar](250) NULL,
+	[Spousal_Employer_Name] [varchar](250) NULL,
+	[Spousal_Employer_Number] [varchar](250) NULL,
+	[Spousal_Income] [varchar](250) NULL,
+	[Spouse] [varchar](250) NULL,
+	[Domestic_Partner] [varchar](250) NULL,
+	[Dependent_0_First_Name] [varchar](250) NULL,
+	[Dependent_0_Last_Name] [varchar](250) NULL,
+	[Dependent_0_DOB] [varchar](250) NULL,
+	[Dependent_0_Sex] [varchar](250) NULL,
+	[Dependent_0_SSN] [varchar](250) NULL,
+	[Dependent_0_Covered] [varchar](250) NULL,
+	[Dependent_1_First_Name] [varchar](250) NULL,
+	[Dependent_1_Last_Name] [varchar](250) NULL,
+	[Dependent_1_DOB] [varchar](250) NULL,
+	[Dependent_1_Sex] [varchar](250) NULL,
+	[Dependent_1_SSN] [varchar](250) NULL,
+	[Dependent_1_Covered] [varchar](250) NULL,
+	[Dependent_2_First_Name] [varchar](250) NULL,
+	[Dependent_2_Last_Name] [varchar](250) NULL,
+	[Dependent_2_DOB] [varchar](250) NULL,
+	[Dependent_2_Sex] [varchar](250) NULL,
+	[Dependent_2_SSN] [varchar](250) NULL,
+	[Dependent_2_Covered] [varchar](250) NULL,
+	[Dependent_3_First_Name] [varchar](250) NULL,
+	[Dependent_3_Last_Name] [varchar](250) NULL,
+	[Dependent_3_DOB] [varchar](250) NULL,
+	[Dependent_3_Sex] [varchar](250) NULL,
+	[Dependent_3_SSN] [varchar](250) NULL,
+	[Dependent_3_Covered] [varchar](250) NULL,
+	[Dependent_4_First_Name] [varchar](250) NULL,
+	[Dependent_4_Last_Name] [varchar](250) NULL,
+	[Dependent_4_DOB] [varchar](250) NULL,
+	[Dependent_4_Sex] [varchar](250) NULL,
+	[Dependent_4_SSN] [varchar](250) NULL,
+	[Dependent_4_Covered] [varchar](250) NULL,
+	[Dependent_5_First_Name] [varchar](250) NULL,
+	[Dependent_5_Last_Name] [varchar](250) NULL,
+	[Dependent_5_DOB] [varchar](250) NULL,
+	[Dependent_5_Sex] [varchar](250) NULL,
+	[Dependent_5_SSN] [varchar](250) NULL,
+	[Dependent_5_Covered] [varchar](250) NULL,
+	[Dependent_6_First_Name] [varchar](250) NULL,
+	[Dependent_6_Last_Name] [varchar](250) NULL,
+	[Dependent_6_DOB] [varchar](250) NULL,
+	[Dependent_6_Sex] [varchar](250) NULL,
+	[Dependent_6_SSN] [varchar](250) NULL,
+	[Dependent_6_Covered] [varchar](250) NULL,
+	[Dependent_7_First_Name] [varchar](250) NULL,
+	[Dependent_7_Last_Name] [varchar](250) NULL,
+	[Dependent_7_DOB] [varchar](250) NULL,
+	[Dependent_7_Sex] [varchar](250) NULL,
+	[Dependent_7_SSN] [varchar](250) NULL,
+	[Dependent_7_Covered] [varchar](250) NULL,
+	[Dependent_8_First_Name] [varchar](250) NULL,
+	[Dependent_8_Last_Name] [varchar](250) NULL,
+	[Dependent_8_DOB] [varchar](250) NULL,
+	[Dependent_8_Sex] [varchar](250) NULL,
+	[Dependent_8_SSN] [varchar](250) NULL,
+	[Dependent_8_Covered] [varchar](250) NULL,
+	[Tax_Credit_Amount] [varchar](250) NULL,
+	[Plan_Premium] [varchar](250) NULL,
+	[Payment_Amount] [varchar](250) NULL,
+	[Plan_Name] [varchar](250) NULL,
+	[Plan_ID] [varchar](250) NULL,
+	[Insurance_Company] [varchar](250) NULL,
+	[Plan_Selected] [varchar](250) NULL,
+	[Credit_Card] [varchar](250) NULL,
+	[Exp_Date] [varchar](250) NULL,
+	[CVC] [varchar](250) NULL,
+	[Date_Processed] [varchar](250) NULL,
+	[Assigned_Id] [varchar](250) NULL,
+	[DateTime_Assigned] [varchar](250) NULL,
+	[Status] [varchar](250) NULL,
+	[App_Submitted_Date] [varchar](250) NULL,
+	[Policy_Effective_Date] [varchar](250) NULL,
+	[Agent_Login_Used] [varchar](250) NULL,
+	[LastStatusChange] [varchar](250) NULL,
+	[SubmittedToFloridaBlue] [varchar](250) NULL,
+	[Carrier] [varchar](250) NULL,
+	[FederallyFacilitatedMarketplaceId] [varchar](250) NULL,
+	[SubscriberId] [varchar](250) NULL,
+	[ExpirationDate] [varchar](250) NULL,
+	[ConsentConfirmedAt] [varchar](250) NULL,
+	[ConsentConfirmedBy] [varchar](250) NULL,
+	[Agency_ID] [varchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG] ADD  DEFAULT ('AIA_IMS_Data_Exp_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_DETAILS_STG] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+********************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_IMS_POLICY_HISTORY](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[IMS_Transaction_Id] [varchar](250) NULL,
+	[Submitter_Id] [varchar](250) NULL,
+	[Submitter_First_Name] [varchar](250) NULL,
+	[Submitter_Last_Name] [varchar](250) NULL,
+	[Florida_Blue_Response] [varchar](250) NULL,
+	[Date_Time_Submitted] [varchar](250) NULL,
+	[Agent_Id] [varchar](250) NULL,
+	[Agent_First_Name] [varchar](250) NULL,
+	[Agent_Last_Name] [varchar](250) NULL,
+	[Runner_Name] [varchar](250) NULL,
+	[Upline_First_Name] [varchar](250) NULL,
+	[Upline_Last_Name] [varchar](250) NULL,
+	[Department_Name] [varchar](250) NULL,
+	[Department_Designation] [varchar](250) NULL,
+	[Client_First_Name] [varchar](250) NULL,
+	[Client_Last_Name] [varchar](250) NULL,
+	[Client_DOB] [varchar](250) NULL,
+	[Client_Phone] [varchar](250) NULL,
+	[Client_Email] [varchar](250) NULL,
+	[Client_Address_1] [varchar](254) NULL,
+	[Client_Address_2] [varchar](254) NULL,
+	[Client_City] [varchar](250) NULL,
+	[Client_State] [varchar](250) NULL,
+	[Client_Zip] [varchar](250) NULL,
+	[Member_Count_Enrolled] [varchar](250) NULL,
+	[Assigned_Id] [varchar](250) NULL,
+	[Status] [varchar](250) NULL,
+	[App_Submitted_Date] [varchar](250) NULL,
+	[Policy_Effective_Date] [varchar](250) NULL,
+	[Agent_Login_Used] [varchar](250) NULL,
+	[Carrier] [varchar](250) NULL,
+	[FFM_Id] [varchar](250) NULL,
+	[Subscriber_Id] [varchar](250) NULL,
+	[Client_Sex] [varchar](250) NULL,
+	[Married] [varchar](250) NULL,
+	[Pregnant] [varchar](250) NULL,
+	[Smoker] [varchar](250) NULL,
+	[American_Native] [varchar](250) NULL,
+	[Client_Income] [varchar](250) NULL,
+	[Client_Income_Freq] [varchar](250) NULL,
+	[Tax_Credit_Amount] [varchar](250) NULL,
+	[Plan_Premium] [varchar](250) NULL,
+	[Payment_Amount] [varchar](250) NULL,
+	[Plan_Name] [varchar](250) NULL,
+	[Plan_ID] [varchar](250) NULL,
+	[Insurance_Company] [varchar](250) NULL,
+	[Plan_Selected] [varchar](250) NULL,
+	[DateTime_Assigned] [varchar](250) NULL,
+	[Last_Status_Change] [varchar](250) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_HISTORY] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_HISTORY] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_HISTORY] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_HISTORY] ADD  DEFAULT ('[AIA_IMS_POLICY_DETAILS_STG]') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_IMS_POLICY_HISTORY] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+********************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Comp_Period] [date] NULL,
+	[Action] [varchar](255) NULL,
+	[Frequency] [varchar](255) NULL,
+	[Contract ID_Or_Group Number] [varchar](255) NULL,
+	[Product_ID] [varchar](255) NULL,
+	[Carrier_Comp_Type] [nvarchar](100) NULL,
+	[Adjustment_Start_Date] [date] NULL,
+	[Adjustment_End_Date] [date] NULL,
+	[Accounting_Start_Date] [date] NULL,
+	[Accounting_End_Date] [date] NULL,
+	[Writing_Agent] [nvarchar](100) NULL,
+	[Payee_AOR] [varchar](255) NULL,
+	[Payment] [nvarchar](10) NULL,
+	[Comments] [varchar](255) NULL,
+	[Agency_ID] [nvarchar](5) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('AIA_Agency_Manual_Adjustment_Monthly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Broker_NPN] [varchar](254) NULL,
+	[Broker_First_Name] [varchar](254) NULL,
+	[Broker_Last_Name] [varchar](254) NULL,
+	[Member_First_Name] [varchar](254) NULL,
+	[Member_Last_Name] [varchar](254) NULL,
+	[Address1] [varchar](254) NULL,
+	[Address2] [varchar](254) NULL,
+	[City] [varchar](254) NULL,
+	[State] [varchar](254) NULL,
+	[Zip] [varchar](254) NULL,
+	[State2] [varchar](254) NULL,
+	[dob] [varchar](254) NULL,
+	[Gender] [varchar](254) NULL,
+	[Application_Date] [varchar](254) NULL,
+	[Effective_date] [varchar](254) NULL,
+	[Product] [varchar](254) NULL,
+	[End_Date] [varchar](254) NULL,
+	[Status] [varchar](254) NULL,
+	[Member_Premium] [varchar](254) NULL,
+	[Total_Premium] [varchar](254) NULL,
+	[Paid_Through_Date] [varchar](254) NULL,
+	[Net_Due_Amount] [varchar](254) NULL,
+	[Scheduled_Term_Date] [varchar](254) NULL,
+	[HIX_ID] [varchar](254) NULL,
+	[Subscriber_ID] [varchar](254) NULL,
+	[Member_Count] [varchar](254) NULL,
+	[Member_Bussiness_Phone] [varchar](254) NULL,
+	[Original_Effective_Date] [varchar](254) NULL,
+	[Broker_Start_Date] [varchar](254) NULL,
+	[Broker_End_Date] [varchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('AIA_Molina_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_MOLINA_ACTIVE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+***********************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Coverage_Indicator] [nvarchar](50) NULL,
+	[IMS_ID_Assignment] [nvarchar](50) NULL,
+	[Policy_Number] [nvarchar](50) NULL,
+	[Eff_Date] [nvarchar](22) NULL,
+	[Bill_From_Date] [nvarchar](22) NULL,
+	[Renewal_Period] [nvarchar](10) NULL,
+	[Comp_Type] [nvarchar](50) NULL,
+	[Statement_Date] [nvarchar](22) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023] ADD  DEFAULT ('AIA_NewSale_Renewal Assignment_Onetime_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_NEWSALE_RENEWAL_ASSIGNMENT_FY2023] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**********************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Member_Id] [varchar](50) NULL,
+	[Member_Name] [varchar](100) NULL,
+	[DoB] [varchar](22) NULL,
+	[Account_Creation_Status] [varchar](50) NULL,
+	[Email] [varchar](50) NULL,
+	[Phone_Number] [varchar](20) NULL,
+	[Mailing_Address] [varchar](100) NULL,
+	[State] [varchar](10) NULL,
+	[On_Exchange] [varchar](20) NULL,
+	[Plan] [nvarchar](50) NULL,
+	[Premium_Amount] [varchar](50) NULL,
+	[APT_Subsidy] [varchar](50) NULL,
+	[Lives] [char](5) NULL,
+	[Coverage_start_date] [varchar](22) NULL,
+	[Coverage_end_date] [varchar](22) NULL,
+	[Policy_status] [varchar](50) NULL,
+	[Renewal_plan] [char](64) NULL,
+	[Renewal_premium_amount] [char](10) NULL,
+	[Renewal_APTC_subsidy] [char](10) NULL,
+	[Renewal_date] [char](10) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS] ADD  DEFAULT ('AIA_Oscar_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_OSCAR_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**********************************************************************************************************************************************************************
+
+CREATE TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[AGENT_ID] [varchar](50) NULL,
+	[AGENT_ID_STATUS] [varchar](50) NULL,
+	[AGENT_NAME] [varchar](50) NULL,
+	[AGENT_EMAIL] [varchar](50) NULL,
+	[AGENT_NPN] [varchar](50) NULL,
+	[MEMBER_FIRST_NAME] [varchar](50) NULL,
+	[MEMBER_LAST_NAME] [varchar](50) NULL,
+	[DATE_OF_BIRTH] [varchar](50) NULL,
+	[MEMBERE_MAIL] [varchar](50) NULL,
+	[MEMBER_PHONE] [varchar](50) NULL,
+	[MEMBER_ADDRESS1] [varchar](50) NULL,
+	[MEMBER_ADDRESS2] [varchar](50) NULL,
+	[MEMBER_CITY] [varchar](50) NULL,
+	[MEMBER_STATE] [varchar](50) NULL,
+	[MEMBER_ZIP] [varchar](50) NULL,
+	[MEMBER_STATUS] [varchar](50) NULL,
+	[MEMBER_COUNTY] [varchar](50) NULL,
+	[MEMBER_NUMBER] [varchar](50) NULL,
+	[POLICY_EFFECTIVE_DATE] [varchar](50) NULL,
+	[AGENT_OF_RECORD] [varchar](50) NULL,
+	[CONTRACT_ID] [varchar](50) NULL,
+	[PBP] [varchar](50) NULL,
+	[SEGMENT_ID] [varchar](50) NULL,
+	[APPLICATION_NUMBER] [varchar](50) NULL,
+	[POLICY_TERM_DATE] [varchar](50) NULL,
+	[PRODUCT] [varchar](50) NULL,
+	[TERM_REASON_CODE] [varchar](50) NULL,
+	[INDIVIDUAL_ID] [varchar](50) NULL,
+	[HOUSEHOLD_ID] [varchar](50) NULL,
+	[MBI_NUMBER] [varchar](50) NULL,
+	[SECONDARY_PHONE_NUM] [varchar](50) NULL,
+	[PLAN_STATUS] [varchar](50) NULL,
+	[PLAN_NAME] [varchar](50) NULL,
+	[SECONDARY_ADDRESSLINE1] [varchar](50) NULL,
+	[SECONDARY_ADDRESSLINE2] [varchar](50) NULL,
+	[SECONDARY_ADDRESS_MEMBER_CITY] [varchar](50) NULL,
+	[SECONDARY_ADDRESS_MEMBER_STATE] [varchar](50) NULL,
+	[SECONDARY_ADDRESS_MEMBER_ZIP] [varchar](50) NULL,
+	[SECONDARY_ADDRESS_MEMBER_COUNTY] [varchar](50) NULL,
+	[IFP_FFM_APP_ID] [varchar](50) NULL,
+	[NMANAME80] [varchar](50) NULL,
+	[NMAWIDSTATUS80] [varchar](50) NULL,
+	[NMANPN80] [varchar](50) NULL,
+	[NMANAME70] [varchar](50) NULL,
+	[NMAWIDSTATUS70] [varchar](50) NULL,
+	[NMANPN70] [varchar](50) NULL,
+	[NMANAME60] [varchar](50) NULL,
+	[NMAWIDSTATUS60] [varchar](50) NULL,
+	[NMANPN60] [varchar](50) NULL,
+	[FMONAME50] [varchar](50) NULL,
+	[FMOWIDSTATUS50] [varchar](50) NULL,
+	[FMONPN50] [varchar](50) NULL,
+	[MGANAME40] [varchar](50) NULL,
+	[MGAWIDSTATUS40] [varchar](50) NULL,
+	[MGANPN40] [varchar](50) NULL,
+	[GANAME30] [varchar](50) NULL,
+	[GAWIDSTATUS30] [varchar](50) NULL,
+	[GANPN30] [varchar](50) NULL,
+	[AGENT_NAME20] [varchar](50) NULL,
+	[AGENT_WID_STATUS20] [varchar](50) NULL,
+	[AGENT_WID20] [varchar](50) NULL,
+	[AGENT_NPN20] [varchar](50) NULL,
+	[SOLICITOR_NAME10] [varchar](50) NULL,
+	[SOLICITOR_WID_STATUS10] [varchar](50) NULL,
+	[SOLICITOR_WID10] [varchar](50) NULL,
+	[SOLICITOR_NPN10] [varchar](50) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS] ADD  DEFAULT ('AIA_UNITED_HEALTH_CARE_Weekly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[AIA_UNITED_HEALTH_CARE_POLICY_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**********************************************************************************************************************************************************************

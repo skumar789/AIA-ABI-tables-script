@@ -1,0 +1,1073 @@
+CREATE TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [varchar](254) NULL,
+	[Agency_Name] [varchar](254) NULL,
+	[Agency_Address] [varchar](254) NULL,
+	[Agency_Phone] [varchar](254) NULL,
+	[Agency_Email] [varchar](254) NULL,
+	[Agency_Primary_Contact_Name] [varchar](254) NULL,
+	[Agency_Secondary_Contact_Name] [varchar](254) NULL,
+	[Agency_Role] [varchar](254) NULL,
+	[Agency_E2EDS_Application_Access_Status] [varchar](254) NULL,
+	[Agency_Contract_Start_Date] [varchar](254) NULL,
+	[Agency_Contract_End_Date] [varchar](254) NULL,
+	[Agency_Contract_Renewal_Date] [varchar](254) NULL,
+	[Agency_Contract_Termination_Date] [varchar](254) NULL,
+	[Agency_Contract_Signed_By] [varchar](254) NULL,
+	[Agency_Primary_Login_Id] [varchar](254) NULL,
+	[Agency_Primary_Login_Password] [varchar](254) NULL,
+	[Agency_Logo] [image] NULL,
+	[Agency_Web_URL_Address] [varchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('ABI_Agency_Onboarding_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ADMIN_CONTACT_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+****************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Year] [varchar](100) NULL,
+	[Segment] [varchar](100) NULL,
+	[Agent_Contract_Type] [varchar](100) NULL,
+	[FB_Comp_Statement] [varchar](100) NULL,
+	[FB_Product_ID] [varchar](100) NULL,
+	[FB_Comp_Type] [varchar](100) NULL,
+	[Agency_Comp_Type] [varchar](100) NULL,
+	[Contract_Starts_With] [varchar](100) NULL,
+	[E2E_Plan_Description] [varchar](200) NULL,
+	[Frequency] [varchar](100) NULL,
+	[FB_Commission_Flat_Rate] [varchar](10) NULL,
+	[Standard_Amount] [varchar](10) NULL,
+	[Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Override_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Payment_Type] [varchar](100) NULL,
+	[Tier1_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier2_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier3_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier4_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Enrollment_Year_Start] [varchar](100) NULL,
+	[Enrollment_Year_End] [varchar](100) NULL,
+	[Group_Size_Range_Start] [varchar](100) NULL,
+	[Group_Size_Range_End] [varchar](100) NULL,
+	[Group_County] [varchar](100) NULL,
+	[Tier1_Amount] [varchar](100) NULL,
+	[Tier2_Amount] [varchar](100) NULL,
+	[Tier3_Amount] [varchar](100) NULL,
+	[Carrier] [varchar](100) NULL,
+	[Agency_Name] [varchar](100) NULL,
+	[Tier5_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier6_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier7_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier8_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier9_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Tier10_Percent_Of_FB_Payment] [varchar](100) NULL,
+	[Agency_ID] [smallint] NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](100) NULL,
+	[Record_Data_Source] [char](100) NULL,
+	[Record_Flag_Status] [char](100) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('ABI_Agency_Rate_Annual_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_ANNUAL_RATE_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+**************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [varchar](50) NULL,
+	[Agent_Code] [varchar](50) NULL,
+	[Agent_Last_Name] [varchar](50) NULL,
+	[Agent_First_Name] [varchar](50) NULL,
+	[FB_UID] [varchar](50) NULL,
+	[Member_Contract_ID] [varchar](50) NULL,
+	[Comp_Amount] [varchar](50) NULL,
+	[Flat_Rate] [varchar](50) NULL,
+	[Member_Count] [varchar](50) NULL,
+	[Percent_Of_Prem] [varchar](50) NULL,
+	[Prem_Paid_Amt] [varchar](50) NULL,
+	[Comp_Type] [varchar](50) NULL,
+	[Event_Type] [varchar](50) NULL,
+	[Initial_Payment_Date] [varchar](50) NULL,
+	[Owning_Agency_AOR_Effective_Date] [varchar](50) NULL,
+	[Accounting_Date] [varchar](50) NULL,
+	[Compensation_Date] [varchar](50) NULL,
+	[Original_Effective_Date] [varchar](50) NULL,
+	[Benefit_Effective_Date] [varchar](50) NULL,
+	[Cancel_Date] [varchar](50) NULL,
+	[Product_ID] [varchar](50) NULL,
+	[Product_Type] [varchar](50) NULL,
+	[Product_Tier_Metal_Level] [varchar](50) NULL,
+	[Count_Name] [varchar](50) NULL,
+	[Bonus_County_Indicator] [varchar](50) NULL,
+	[App_ID] [varchar](50) NULL,
+	[Exchange_Ind] [varchar](50) NULL,
+	[Subscriber_Last_Name] [varchar](50) NULL,
+	[Subscriber_First_Name] [varchar](50) NULL,
+	[Subscriber_Middle_Name] [varchar](50) NULL,
+	[Coverage_From_Date] [varchar](50) NULL,
+	[Coverage_To_Date] [varchar](50) NULL,
+	[Agency_ID] [varchar](100) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS] ADD  DEFAULT ('ABI_NewSale_Renewal_Prior_Month_Onetime_Feed') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_NEWSALE_RENEWALS_PRIOR_YEAR_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+
+*****************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Contract_Year] [nvarchar](5) NULL,
+	[Employee_Type] [nvarchar](50) NULL,
+	[Employee_ID] [nvarchar](50) NULL,
+	[Full_Name] [nvarchar](100) NULL,
+	[Primary_Role] [nvarchar](50) NULL,
+	[Monthly_Renewal_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Pre_ACA_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[LTL_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Med_Sup_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Dental_NewSale_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[ACA_NewSale_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Group_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Ancillary_Renewal_Writing_Agent_Comp_Tier] [nvarchar](50) NULL,
+	[Payroll_Id] [nvarchar](50) NULL,
+	[Payee_Employee_Id] [nvarchar](50) NULL,
+	[Payee_Name] [nvarchar](100) NULL,
+	[Main_Upline_Employee_ID] [nvarchar](50) NULL,
+	[Main_Upline_Full_Name] [nvarchar](100) NULL,
+	[Role_End_Date] [nvarchar](22) NULL,
+	[Role_End_Reason] [nvarchar](100) NULL,
+	[All_Sales_Payee] [nvarchar](100) NULL,
+	[Submitting_Agent] [nvarchar](100) NULL,
+	[Secondary_Role] [nvarchar](100) NULL,
+	[Department_Entity_ID] [nvarchar](100) NULL,
+	[Department_Name] [nvarchar](100) NULL,
+	[Health_ACA_Employee Tier] [nvarchar](100) NULL,
+	[Agency_ID] [nvarchar](3) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ((102)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('ABI_Agency_Payee_Monthly_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_AGENCY_PAYEE_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*****************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AGENT_TYPE](
+	[Employee_Type] [varchar](150) NULL,
+	[AgentType] [int] NULL
+) ON [PRIMARY]
+GO
+
+********************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AgentPayeeFileData](
+	[AgentPayeeFileDataId] [int] NULL,
+	[AgentPayeeFileId] [int] NOT NULL,
+	[AgentType] [int] NULL,
+	[ContractYear] [int] NOT NULL,
+	[FBWritingAgentCode] [varchar](50) NULL,
+	[FBAgentName] [varchar](250) NULL,
+	[FBAgentNpn] [varchar](250) NULL,
+	[WritingAgentRole] [varchar](250) NULL,
+	[MonthlyRenewalWritingAgentCompTier] [int] NULL,
+	[WritingAgentPayrollId] [varchar](250) NULL,
+	[PayeeAOR] [varchar](250) NULL,
+	[PayeeName] [varchar](250) NULL,
+	[OverridePayeeAOR] [varchar](250) NULL,
+	[OverridePayeeName] [varchar](250) NULL,
+	[LtlWritingAgentCompTier] [int] NULL,
+	[MedSupWritingAgentCompTier] [int] NULL,
+	[PreAcaWritingAgentCompTier] [int] NULL,
+	[AcaNewSaleWritingAgentCompTier] [int] NULL,
+	[AncillaryRenewalWritingAgentCompTier] [int] NULL,
+	[DentalNewSaleWritingAgentCompTier] [int] NULL,
+	[GroupWritingAgentCompTier] [int] NULL,
+	[Employee_Type] [varchar](200) NULL,
+	[All_Sales_Payee] [varchar](200) NULL
+) ON [PRIMARY]
+GO
+
+***********************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AGENTRATEE2E_PLAN_DESCRIPTION](
+	[AgentRatesheetFileDataid] [int] IDENTITY(1,1) NOT NULL,
+	[E2E_Plan_Description] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+
+***********************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_AgentRateSheetFileData](
+	[AgentRateSheetFileDataId] [int] NULL,
+	[AgentRateSheetFileId] [int] NULL,
+	[Year] [int] NULL,
+	[Segment] [int] NULL,
+	[AgentContractType] [varchar](50) NULL,
+	[FBProductId] [varchar](50) NULL,
+	[FBCompType] [int] NULL,
+	[AgencyCompType] [int] NULL,
+	[Frequency] [int] NULL,
+	[PaymentType] [int] NULL,
+	[PercentOfFBPayment] [decimal](18, 10) NULL,
+	[StandardAmount] [money] NULL,
+	[ContractStartsWith] [varchar](50) NULL,
+	[Tier1Percent] [decimal](18, 10) NULL,
+	[Tier2Percent] [decimal](18, 10) NULL,
+	[Tier3Percent] [decimal](18, 10) NULL,
+	[Tier4Percent] [decimal](18, 10) NULL,
+	[EnrollmentYearEnd] [int] NULL,
+	[EnrollmentYearStart] [int] NULL,
+	[FBCommissionFlatRate] [decimal](10, 4) NULL,
+	[OverridePercentOfFBPayment] [decimal](18, 10) NULL,
+	[E2E_Plan_Description] [varchar](250) NULL,
+	[Group_Size_Range_Start] [nvarchar](254) NULL,
+	[Group_Size_Range_End] [nvarchar](254) NULL,
+	[Group_County] [nvarchar](254) NULL,
+	[Tier1_Amount] [nvarchar](254) NULL,
+	[Tier2_Amount] [nvarchar](254) NULL,
+	[Tier3_Amount] [nvarchar](254) NULL
+) ON [PRIMARY]
+GO
+
+********************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Field_1] [nvarchar](254) NULL,
+	[Field_2] [nvarchar](254) NULL,
+	[Field_3] [nvarchar](254) NULL,
+	[Field_4] [nvarchar](254) NULL,
+	[Field_5] [nvarchar](254) NULL,
+	[Field_6] [nvarchar](254) NULL,
+	[Field_7] [nvarchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS] ADD  DEFAULT ('ABI_Application_Tracker_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_APPLICATION_TRACKER_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************
+CREATE TABLE [dbo].[ABI_COMMISSIONS](
+	[CommissionId] [int] NULL,
+	[PaymentId] [int] NULL,
+	[PayeeAgentCode] [varchar](50) NULL,
+	[CommissionAmount] [money] NULL,
+	[CreatedAt] [datetimeoffset](7) NULL,
+	[ModifiedAt] [datetimeoffset](7) NULL,
+	[PayeeName] [varchar](255) NULL,
+	[CommissionType] [int] NULL
+) ON [PRIMARY]
+GO
+
+***************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_COMMISSIONS_DETAILS](
+	[[E2eis_Seq_Number]]] [bigint] NULL,
+	[Field_1] [nvarchar](254) NULL,
+	[Field_2] [nvarchar](254) NULL,
+	[Field_3] [nvarchar](254) NULL,
+	[Field_4] [nvarchar](254) NULL,
+	[Field_5] [nvarchar](254) NULL,
+	[Field_6] [nvarchar](254) NULL,
+	[Field_7] [nvarchar](254) NULL,
+	[Field_8] [nvarchar](254) NULL,
+	[Record Load Date] [date] NULL,
+	[Record Loaded By] [varchar](254) NULL,
+	[Record Data Source] [varchar](254) NULL,
+	[Record Flag Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+****************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_COMMISSIONS_STATEMENT_DETAILS](
+	[AgencyId] [varchar](250) NULL,
+	[AgencyName] [varchar](250) NULL,
+	[Comp_Period] [varchar](100) NULL,
+	[ReportSectionSeq] [numeric](10, 0) NULL,
+	[ReportSections] [varchar](250) NULL,
+	[AgentType] [varchar](250) NULL,
+	[Carrier] [varchar](250) NULL,
+	[AgentNumber] [varchar](250) NULL,
+	[AgentName] [varchar](250) NULL,
+	[Compensation_Type] [varchar](250) NULL,
+	[Commission_Amount] [numeric](14, 2) NULL,
+	[Subscriber_Name] [varchar](250) NULL,
+	[Comp_Type] [varchar](250) NULL,
+	[Plan_Type] [varchar](250) NULL,
+	[Plan_Description] [varchar](250) NULL,
+	[Member_Count] [numeric](10, 0) NULL,
+	[Member_Contract_ID] [varchar](250) NULL,
+	[Accounting_Date] [date] NULL,
+	[OrigEffDate] [date] NULL,
+	[Cov_From_Date] [date] NULL,
+	[Cov_To_Date] [date] NULL,
+	[Cancel_Date] [date] NULL,
+	[County] [varchar](250) NULL,
+	[Writing_Agent] [varchar](250) NULL,
+	[Agent_Comm] [numeric](14, 2) NULL,
+	[Sub_Category] [varchar](250) NULL,
+	[PayrollId] [varchar](250) NULL,
+	[ReportGroupSeq] [bigint] NULL,
+	[LOA_AgentNumber] [varchar](250) NULL,
+	[LOA_AgentName] [varchar](250) NULL,
+	[CompType_PriorCompType] [varchar](200) NULL,
+	[LOA_CompeType] [varchar](250) NULL,
+	[AgentNumber_HEADER] [varchar](250) NULL,
+	[AgentName_HEADER] [varchar](250) NULL,
+	[ManualAdj_Comments] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+******************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_E2E_PLAN_DESCRIPTION](
+	[AgentRateSheetFileDataId] [varchar](50) NULL,
+	[E2E_Plan_Description] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+*********************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_EG01_COMMISION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [nvarchar](254) NULL,
+	[Agency_Name] [nvarchar](254) NULL,
+	[Writing_Agent] [nvarchar](254) NULL,
+	[Internal_Rep] [nvarchar](254) NULL,
+	[Agency_Number] [nvarchar](254) NULL,
+	[Override_Agent_Code] [nvarchar](254) NULL,
+	[Group_Number] [nvarchar](254) NULL,
+	[Group_Name] [nvarchar](254) NULL,
+	[Contract_Count] [nvarchar](254) NULL,
+	[Coverage] [nvarchar](254) NULL,
+	[Billing_Period_From] [nvarchar](254) NULL,
+	[Billing_Period_to] [nvarchar](254) NULL,
+	[Reconciled_Premium] [nvarchar](254) NULL,
+	[Comm_Rate_Or_Flat_Rate] [nvarchar](254) NULL,
+	[Copensation_Amount] [nvarchar](254) NULL,
+	[Adjustment] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_EG01_COMMISION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_EG01_COMMISION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_EG01_COMMISION_DETAILS] ADD  DEFAULT (' ABI_EG01_Group_Commission_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_EG01_COMMISION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+******************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_EI13U_COMMISION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [nvarchar](254) NULL,
+	[Agent_Code] [nvarchar](254) NULL,
+	[Agent_Last] [nvarchar](254) NULL,
+	[Agent_First] [nvarchar](254) NULL,
+	[FB_UID] [nvarchar](254) NULL,
+	[Member_Contract_ID] [nvarchar](254) NULL,
+	[Comp_Amount] [nvarchar](254) NULL,
+	[Flat_Rate] [nvarchar](254) NULL,
+	[Member_Count] [nvarchar](254) NULL,
+	[Percent_Of_Prem] [nvarchar](254) NULL,
+	[Prem_Paid_Amt] [nvarchar](254) NULL,
+	[Comp_Type] [nvarchar](254) NULL,
+	[Event_Type] [nvarchar](254) NULL,
+	[Initial_Payment_Date] [nvarchar](254) NULL,
+	[Owning_Agency_AOR_Effective_Date] [nvarchar](254) NULL,
+	[Accounting_Date] [nvarchar](254) NULL,
+	[Compensation_Date] [nvarchar](254) NULL,
+	[Original_Effective_Date] [nvarchar](254) NULL,
+	[Benefit_Effective_Date] [nvarchar](254) NULL,
+	[Cancel_Date] [nvarchar](254) NULL,
+	[Product_ID] [nvarchar](254) NULL,
+	[Product_Type] [nvarchar](254) NULL,
+	[Product_Tier_Metal_Level] [nvarchar](254) NULL,
+	[County_Name] [nvarchar](254) NULL,
+	[Bonus_County_Indicator] [nvarchar](254) NULL,
+	[App_ID] [nvarchar](254) NULL,
+	[Exchange_Ind] [nvarchar](254) NULL,
+	[Subscriber_Last] [nvarchar](254) NULL,
+	[Subscriber_First] [nvarchar](254) NULL,
+	[Subscriber_Middle] [nvarchar](254) NULL,
+	[Coverage_From_Date] [nvarchar](254) NULL,
+	[Coverage_To_Date] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_EI13U_COMMISION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_EI13U_COMMISION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_EI13U_COMMISION_DETAILS] ADD  DEFAULT ('ABI_EI13U_U65_Commission_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_EI13U_COMMISION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*******************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_EI14U_COMMISION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Agency_Code] [nvarchar](254) NULL,
+	[Agent_Last_Name] [nvarchar](254) NULL,
+	[Agent_First_Name] [nvarchar](254) NULL,
+	[Agent_Code] [nvarchar](254) NULL,
+	[Product_Type] [nvarchar](254) NULL,
+	[Comp_Type] [nvarchar](254) NULL,
+	[Subscriber_Last_Name] [nvarchar](254) NULL,
+	[Subscriber_First_Name] [nvarchar](254) NULL,
+	[Subscriber_Middle_Name] [nvarchar](254) NULL,
+	[FB_UID] [nvarchar](254) NULL,
+	[Member_Contract_No] [nvarchar](254) NULL,
+	[App_ID] [nvarchar](254) NULL,
+	[Original_Effective_Date] [nvarchar](254) NULL,
+	[Benefit_Effective_Date] [nvarchar](254) NULL,
+	[Accounting_Date] [nvarchar](254) NULL,
+	[Compensation_date] [nvarchar](254) NULL,
+	[Cancel_Date] [nvarchar](254) NULL,
+	[Initial_Payment_Date] [nvarchar](254) NULL,
+	[Comp_Year] [nvarchar](254) NULL,
+	[Prior_Carrier_Ind] [nvarchar](254) NULL,
+	[Prior_Plan_Type] [nvarchar](254) NULL,
+	[Event_Type] [nvarchar](254) NULL,
+	[Flat_Rate] [nvarchar](254) NULL,
+	[Comm_Amount] [nvarchar](254) NULL,
+	[County_Name] [nvarchar](254) NULL,
+	[CMS_Date] [nvarchar](254) NULL,
+	[Cycle_Year] [nvarchar](254) NULL,
+	[Admin_Fee] [nvarchar](254) NULL,
+	[Age_In_Policy] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_EI14U_COMMISION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_EI14U_COMMISION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_EI14U_COMMISION_DETAILS] ADD  DEFAULT ('ABI_EI14U_O65_Commission_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_EI14U_COMMISION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*****************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_EI16U_COMMISION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Master_Agency_ID] [nvarchar](254) NULL,
+	[Agency_ID] [nvarchar](254) NULL,
+	[Agent_ID] [nvarchar](254) NULL,
+	[Agent_Last_Name] [nvarchar](254) NULL,
+	[Agent_First_Name] [nvarchar](254) NULL,
+	[FB_UID] [nvarchar](254) NULL,
+	[Member_Contract_ID] [nvarchar](254) NULL,
+	[Subscriber_First_Name] [nvarchar](254) NULL,
+	[Subscriber_Last_Name] [nvarchar](254) NULL,
+	[Subscriber_Middle] [nvarchar](254) NULL,
+	[Contract_Member_Count] [nvarchar](254) NULL,
+	[Plan_Name] [nvarchar](254) NULL,
+	[Product_Type] [nvarchar](254) NULL,
+	[County_Name] [nvarchar](254) NULL,
+	[Comp_Amount] [nvarchar](254) NULL,
+	[Accounting_Date] [nvarchar](254) NULL,
+	[Compensation_date] [nvarchar](254) NULL,
+	[Original_Effective_Date] [nvarchar](254) NULL,
+	[Benefit_Effective_Date] [nvarchar](254) NULL,
+	[Coverage_from_Date] [nvarchar](254) NULL,
+	[Coverage_To_Date] [nvarchar](254) NULL,
+	[Is_Qualified] [nvarchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_EI16U_COMMISION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_EI16U_COMMISION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_EI16U_COMMISION_DETAILS] ADD  DEFAULT ('ABI_EI16U_U65_Commission_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_EI16U_COMMISION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+********************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_FB_PAYMENT_COMMON](
+	[AccountingDate] [date] NULL,
+	[FBCompType] [int] NULL,
+	[AgencyCompType] [int] NULL,
+	[SubscriberFirst] [varchar](50) NULL,
+	[SubscriberMiddle] [varchar](10) NULL,
+	[SubscriberLast] [varchar](50) NULL,
+	[ProductType] [varchar](20) NULL,
+	[PlanDescription] [varchar](50) NULL,
+	[MemberCount] [int] NULL,
+	[ContractCount] [int] NULL,
+	[FBContractId] [varchar](20) NULL,
+	[OriginalEffectiveDate] [date] NULL,
+	[CoverageFromDate] [date] NULL,
+	[CancelDate] [date] NULL,
+	[County] [varchar](50) NULL,
+	[FBWritingAgentId] [varchar](20) NULL,
+	[Carrier] [int] NULL,
+	[FBPaymentAmount] [decimal](16, 4) NULL,
+	[Frequency] [int] NULL,
+	[CreatedAt] [datetime] NULL,
+	[ModifiedAt] [datetime] NULL,
+	[PriorCompensationType] [varchar](10) NULL,
+	[PriorAccountingDate] [date] NULL,
+	[CompensationDate] [date] NULL,
+	[FBUserId] [varchar](50) NULL,
+	[CommissionRateFlatRate] [decimal](16, 4) NULL,
+	[periodname] [varchar](50) NULL,
+	[FileType] [varchar](50) NULL,
+	[WritingAgentRole] [varchar](150) NULL,
+	[WritingAgentPayrollId] [varchar](150) NULL,
+	[MonthlyRenewalWritingAgentCompTier] [int] NULL,
+	[NoOfYear] [int] NULL,
+	[ContractStartsWith] [varchar](150) NULL,
+	[LtlWritingAgentCompTier] [int] NULL,
+	[MedSupWritingAgentCompTier] [int] NULL,
+	[PreAcaWritingAgentCompTier] [int] NULL,
+	[AcaNewSaleWritingAgentCompTier] [int] NULL,
+	[AncillaryRenewalWritingAgentCompTier] [int] NULL,
+	[DentalNewSaleWritingAgentCompTier] [int] NULL,
+	[GroupWritingAgentCompTier] [int] NULL,
+	[Agent_Name] [varchar](250) NULL,
+	[LatestCompType] [int] NULL,
+	[LOAPayeeAOR] [varchar](250) NULL,
+	[LOAPayeeName] [varchar](250) NULL,
+	[Contract_TransactionId] [bigint] IDENTITY(1,1) NOT NULL,
+	[Employee_Type] [varchar](250) NULL,
+	[All_Sales_Payee] [varchar](250) NULL,
+	[CoverageTodate] [date] NULL,
+	[Transaction_Id] [bigint] NULL,
+	[ProductType_Correction] [varchar](200) NULL,
+	[Admin_Fee] [decimal](14, 3) NULL,
+	[ManualAdj_Comments] [varchar](250) NULL,
+	[DataCorrection_Comments] [varchar](500) NULL,
+	[ErrorCode] [varchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Contract_TransactionId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+*****************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_FB_PAYMENTS](
+	[PaymentId] [int] NULL,
+	[JobId] [int] NULL,
+	[DataFileType] [int] NULL,
+	[DataFileId] [int] NULL,
+	[AccountingDate] [date] NULL,
+	[FBCompType] [int] NULL,
+	[AgencyCompType] [int] NULL,
+	[SubscriberFirstName] [varchar](50) NULL,
+	[SubscriberMiddleName] [varchar](50) NULL,
+	[SubscriberLastName] [varchar](50) NULL,
+	[ProductType] [varchar](50) NULL,
+	[PlanDescription] [varchar](50) NULL,
+	[MemberCount] [int] NULL,
+	[ContractCount] [int] NULL,
+	[FBContractId] [varchar](50) NULL,
+	[OriginalEffectiveDate] [date] NULL,
+	[CoverageFromDate] [date] NULL,
+	[CancelDate] [date] NULL,
+	[County] [varchar](50) NULL,
+	[FBWritingAgentId] [varchar](50) NULL,
+	[Carrier] [int] NULL,
+	[FBPaymentAmount] [money] NULL,
+	[Frequency] [int] NULL,
+	[CreatedAt] [datetimeoffset](7) NULL,
+	[ModifiedAt] [datetimeoffset](7) NULL,
+	[PriorCompensationType] [int] NULL,
+	[PriorAccountingDate] [date] NULL,
+	[CompensationDate] [date] NULL,
+	[FBUserId] [bigint] NULL,
+	[CommissionRateFlatRate] [decimal](10, 4) NULL,
+	[Period_Name] [varchar](50) NULL,
+	[FileType] [varchar](150) NULL,
+	[CommissionRate] [decimal](10, 4) NULL,
+	[RateType] [varchar](150) NULL,
+	[Agent_Commission] [decimal](10, 4) NULL,
+	[CommissionType] [varchar](150) NULL,
+	[WritingAgentRole] [varchar](150) NULL,
+	[WritingAgentPayrollId] [varchar](150) NULL,
+	[NoOfYear] [int] NULL,
+	[Agent_Name] [varchar](250) NULL,
+	[LatestCompType] [int] NULL,
+	[OverridePayeeAOR] [varchar](250) NULL,
+	[OverridePayeeName] [varchar](250) NULL,
+	[Payment_Status] [varchar](150) NULL,
+	[ManualAdjComments] [varchar](250) NULL,
+	[Contract_TransactionId] [bigint] NULL,
+	[Employee_Type] [varchar](250) NULL,
+	[All_Sales_Payee] [varchar](250) NULL,
+	[PAYEE_AOR] [varchar](250) NULL,
+	[PAYEE_AORNAME] [varchar](250) NULL,
+	[CoverageTodate] [date] NULL
+) ON [PRIMARY]
+GO
+
+******************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_FB_PAYMENTS_HOLD](
+	[PaymentId] [int] NULL,
+	[JobId] [int] NULL,
+	[DataFileType] [int] NULL,
+	[DataFileId] [int] NULL,
+	[AccountingDate] [date] NULL,
+	[FBCompType] [int] NULL,
+	[AgencyCompType] [int] NULL,
+	[SubscriberFirstName] [varchar](50) NULL,
+	[SubscriberMiddleName] [varchar](50) NULL,
+	[SubscriberLastName] [varchar](50) NULL,
+	[ProductType] [varchar](50) NULL,
+	[PlanDescription] [varchar](50) NULL,
+	[MemberCount] [int] NULL,
+	[ContractCount] [int] NULL,
+	[FBContractId] [varchar](50) NULL,
+	[OriginalEffectiveDate] [date] NULL,
+	[CoverageFromDate] [date] NULL,
+	[CancelDate] [date] NULL,
+	[County] [varchar](50) NULL,
+	[FBWritingAgentId] [varchar](50) NULL,
+	[Carrier] [int] NULL,
+	[FBPaymentAmount] [money] NULL,
+	[Frequency] [int] NULL,
+	[CreatedAt] [datetimeoffset](7) NULL,
+	[ModifiedAt] [datetimeoffset](7) NULL,
+	[PriorCompensationType] [int] NULL,
+	[PriorAccountingDate] [date] NULL,
+	[CompensationDate] [date] NULL,
+	[FBUserId] [bigint] NULL,
+	[CommissionRateFlatRate] [decimal](10, 4) NULL,
+	[Period_Name] [varchar](50) NULL,
+	[FileType] [varchar](150) NULL,
+	[CommissionRate] [decimal](10, 4) NULL,
+	[RateType] [varchar](150) NULL,
+	[Agent_Commission] [decimal](10, 4) NULL,
+	[CommissionType] [varchar](150) NULL,
+	[WritingAgentRole] [varchar](150) NULL,
+	[WritingAgentPayrollId] [varchar](150) NULL,
+	[NoOfYear] [int] NULL,
+	[Agent_Name] [varchar](250) NULL,
+	[LatestCompType] [int] NULL,
+	[OverridePayeeAOR] [varchar](250) NULL,
+	[OverridePayeeName] [varchar](250) NULL,
+	[Payment_Status] [varchar](150) NULL,
+	[ManualAdjComments] [varchar](250) NULL,
+	[Contract_TransactionId] [bigint] NULL,
+	[Employee_Type] [varchar](250) NULL,
+	[All_Sales_Payee] [varchar](250) NULL,
+	[PAYEE_AOR] [varchar](250) NULL,
+	[PAYEE_AORNAME] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+*********************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_FHCP_COMMISION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Group_Number] [varchar](50) NULL,
+	[Plan_Code] [varchar](255) NULL,
+	[Plan_Type_Description] [varchar](255) NULL,
+	[Begin_Commission_Date] [varchar](22) NULL,
+	[End_Commission_Date] [varchar](22) NULL,
+	[Agent_First_Name] [varchar](255) NULL,
+	[Agent_Last_Name] [varchar](255) NULL,
+	[Member_Number] [varchar](255) NULL,
+	[Member_First_Name] [varchar](255) NULL,
+	[Member_Last_Name] [varchar](255) NULL,
+	[Eligibility_Begin_Date] [varchar](22) NULL,
+	[Eligibility_End_Date] [varchar](22) NULL,
+	[Commission_Paid] [varchar](22) NULL,
+	[Commission_Adjustment_Amount] [varchar](22) NULL,
+	[Adj_Recovery_Reason] [varchar](50) NULL,
+	[(Recovery_Term_Date] [varchar](50) NULL,
+	[Member_DOB] [varchar](22) NULL,
+	[Member_Age] [varchar](22) NULL,
+	[New_or_Renewal] [varchar](255) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_FHCP_COMMISION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_FHCP_COMMISION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_FHCP_COMMISION_DETAILS] ADD  DEFAULT ('ABI_FHCP_Feed_20240128.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_FHCP_COMMISION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+********************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_FHCP_PAYMENTS](
+	[Period_Name] [varchar](100) NULL,
+	[Group_Number] [varchar](20) NULL,
+	[Agent_Number] [varchar](20) NULL,
+	[Agent_Role] [varchar](250) NULL,
+	[Agent_Name] [varchar](250) NULL,
+	[Plan_Code] [varchar](20) NULL,
+	[Plan_Type_Description] [varchar](100) NULL,
+	[Member_Number] [varchar](20) NULL,
+	[Member_First_Name] [varchar](100) NULL,
+	[Member_Last_Name] [varchar](100) NULL,
+	[Eligibility_Begin_Date] [date] NULL,
+	[Eligibility_End_Date] [date] NULL,
+	[Commission_Paid] [decimal](18, 3) NULL,
+	[Commission_Adjustment] [decimal](18, 3) NULL,
+	[adj_reason_Recovery] [varchar](20) NULL,
+	[New_Renewal] [varchar](50) NULL,
+	[CompYear] [bigint] NULL,
+	[FBCompType] [bigint] NULL,
+	[AgencyCompType] [bigint] NULL,
+	[RateType] [varchar](100) NULL,
+	[CommissionRate] [decimal](18, 3) NULL,
+	[Agent_Commission] [decimal](18, 3) NULL,
+	[Comments] [varchar](250) NULL,
+	[Frequency] [bigint] NULL,
+	[WritingAgentPayrollId] [varchar](50) NULL,
+	[TransactionId] [bigint] NULL,
+	[CommissionType] [varchar](250) NULL,
+	[Override_AgentNumber] [varchar](20) NULL,
+	[Override_AgentName] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+***************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_LIFE_SPECIALTY_VENTURE_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Period_Name] [varchar](255) NULL,
+	[Policy_Number] [varchar](255) NULL,
+	[Client_Id] [nvarchar](255) NULL,
+	[Client_Name] [varchar](255) NULL,
+	[Category] [varchar](255) NULL,
+	[Product] [varchar](255) NULL,
+	[Writing_Agent_Id] [varchar](255) NULL,
+	[Writing_Agent_Name] [varchar](255) NULL,
+	[Agent_Contract_Number] [varchar](255) NULL,
+	[Policy_Effective_Date] [varchar](255) NULL,
+	[Policy_Paid_To_Date] [varchar](255) NULL,
+	[Premium_Transaction_Date] [varchar](255) NULL,
+	[Premium_Due_Date] [varchar](255) NULL,
+	[Mths_Paid] [varchar](255) NULL,
+	[Premium] [varchar](255) NULL,
+	[Rate_Percentage] [float] NULL,
+	[Earned] [varchar](255) NULL,
+	[Adjustments] [float] NULL,
+	[Payable] [varchar](255) NULL,
+	[Unearned_Balance] [float] NULL,
+	[Comments] [float] NULL,
+	[Issue_State] [varchar](255) NULL,
+	[Insured_Name] [varchar](255) NULL,
+	[Gender] [varchar](255) NULL,
+	[Address_Line_One] [varchar](255) NULL,
+	[Address_Line_Two] [varchar](255) NULL,
+	[Address_Line_Three] [float] NULL,
+	[City] [varchar](255) NULL,
+	[State] [varchar](255) NULL,
+	[Zip] [float] NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_LIFE_SPECIALTY_VENTURE_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_LIFE_SPECIALTY_VENTURE_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_LIFE_SPECIALTY_VENTURE_DETAILS] ADD  DEFAULT ('ABI_LSV_Commission_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_LIFE_SPECIALTY_VENTURE_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Comp_Period] [varchar](255) NULL,
+	[Action] [varchar](255) NULL,
+	[Frequency] [varchar](255) NULL,
+	[Contract ID_Or_Group Number] [varchar](255) NULL,
+	[Product_ID] [varchar](255) NULL,
+	[Carrier_Comp_Type] [varchar](255) NULL,
+	[Adjustment_Start_Date] [varchar](50) NULL,
+	[Adjustment_End_Date] [varchar](50) NULL,
+	[Accounting_Start_Date] [varchar](50) NULL,
+	[Accounting_End_Date] [varchar](50) NULL,
+	[Writing_Agent] [varchar](100) NULL,
+	[Payee_AOR] [varchar](255) NULL,
+	[Payment] [varchar](50) NULL,
+	[Comments] [varchar](255) NULL,
+	[Agency_Name] [varchar](255) NULL,
+	[Agency_ID] [varchar](254) NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](100) NULL,
+	[Record_Data_Source] [char](100) NULL,
+	[Record_Flag_Status] [char](100) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('ABI_Agency_Manual_Adjustment_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_MANUAL_ADJUSTMENT_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+*******************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS](
+	[E2eis_Seq_Number] [bigint] IDENTITY(1,1) NOT NULL,
+	[Field_1] [nvarchar](254) NULL,
+	[Field_2] [nvarchar](254) NULL,
+	[Field_3] [nvarchar](254) NULL,
+	[Field_4] [nvarchar](254) NULL,
+	[Field_5] [nvarchar](254) NULL,
+	[Field_6] [nvarchar](254) NULL,
+	[Field_7] [nvarchar](254) NULL,
+	[Field_8] [nvarchar](254) NULL,
+	[Agency_ID] [smallint] NULL,
+	[Record_Load_Date] [date] NULL,
+	[Record_Loaded_By] [char](64) NULL,
+	[Record_Data_Source] [char](64) NULL,
+	[Record_Flag_Status] [char](64) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS] ADD  DEFAULT ((101)) FOR [Agency_ID]
+GO
+
+ALTER TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS] ADD  DEFAULT (getdate()) FOR [Record_Load_Date]
+GO
+
+ALTER TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS] ADD  DEFAULT ('MSL ETL BATCH PROCESSING TEAM') FOR [Record_Loaded_By]
+GO
+
+ALTER TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS] ADD  DEFAULT ('ABI_ZCode_Exception_Feed.csv') FOR [Record_Data_Source]
+GO
+
+ALTER TABLE [dbo].[ABI_PAYMENT_EXCEPTION_DETAILS] ADD  DEFAULT ('Insert') FOR [Record_Flag_Status]
+GO
+
+**************************************************************************************************************************************
+
+CREATE TABLE [dbo].[ABI_PAYMENTS](
+	[PaymentId] [int] NULL,
+	[JobId] [int] NULL,
+	[DataFileType] [int] NULL,
+	[DataFileId] [int] NULL,
+	[AccountingDate] [date] NULL,
+	[FBCompType] [int] NULL,
+	[AgencyCompType] [int] NULL,
+	[SubscriberFirstName] [varchar](50) NULL,
+	[SubscriberMiddleName] [varchar](50) NULL,
+	[SubscriberLastName] [varchar](50) NULL,
+	[ProductType] [varchar](50) NULL,
+	[PlanDescription] [varchar](50) NULL,
+	[MemberCount] [int] NULL,
+	[ContractCount] [int] NULL,
+	[FBContractId] [varchar](50) NULL,
+	[OriginalEffectiveDate] [date] NULL,
+	[CoverageFromDate] [date] NULL,
+	[CancelDate] [date] NULL,
+	[County] [varchar](50) NULL,
+	[FBWritingAgentId] [varchar](50) NULL,
+	[Carrier] [int] NULL,
+	[FBPaymentAmount] [money] NULL,
+	[Frequency] [int] NULL,
+	[CreatedAt] [datetimeoffset](7) NULL,
+	[ModifiedAt] [datetimeoffset](7) NULL,
+	[PriorCompensationType] [int] NULL,
+	[PriorAccountingDate] [date] NULL,
+	[CompensationDate] [date] NULL,
+	[FBUserId] [bigint] NULL,
+	[CommissionRateFlatRate] [decimal](10, 4) NULL
+) ON [PRIMARY]
+GO
+
+*******************************************************************************************************************************************
+
+ABI tables script Backup 
+
+
+
+CREATE TABLE [dbo].[ABI_PAYMENTS_HISTORICAL_DATA](
+	[Policy_Seq_Number] [int] NULL,
+	[PaymentId] [varchar](254) NULL,
+	[JobId] [varchar](254) NULL,
+	[DataFileType] [varchar](254) NULL,
+	[DataFileId] [varchar](254) NULL,
+	[AccountingDate] [varchar](254) NULL,
+	[FBCompType] [varchar](254) NULL,
+	[AgencyCompType] [varchar](254) NULL,
+	[SubscriberFirstName] [varchar](254) NULL,
+	[SubscriberMiddleName] [varchar](254) NULL,
+	[SubscriberLastName] [varchar](254) NULL,
+	[ProductType] [varchar](254) NULL,
+	[PlanDescription] [varchar](254) NULL,
+	[MemberCount] [varchar](254) NULL,
+	[ContractCount] [varchar](254) NULL,
+	[FBContractId] [varchar](254) NULL,
+	[OriginalEffectiveDate] [varchar](254) NULL,
+	[CoverageFromDate] [varchar](254) NULL,
+	[CancelDate] [varchar](254) NULL,
+	[County] [varchar](254) NULL,
+	[FBWritingAgentId] [varchar](254) NULL,
+	[Carrier] [varchar](254) NULL,
+	[FBPaymentAmount] [varchar](254) NULL,
+	[Frequency] [varchar](254) NULL,
+	[CreatedAt] [varchar](254) NULL,
+	[ModifiedAt] [varchar](254) NULL,
+	[PriorCompensationType] [varchar](254) NULL,
+	[PriorAccountingDate] [varchar](254) NULL,
+	[CompensationDate] [varchar](254) NULL,
+	[FBUserId] [varchar](254) NULL,
+	[CommissionRateFlatRate] [varchar](254) NULL,
+	[Record Load Date] [varchar](254) NULL,
+	[Record Loaded By] [varchar](254) NULL,
+	[Record Data Source] [varchar](254) NULL,
+	[Record Flag Status] [varchar](254) NULL
+) ON [PRIMARY]
+GO
+
+******************************************************************************************************************************
+
+
+
+
+
